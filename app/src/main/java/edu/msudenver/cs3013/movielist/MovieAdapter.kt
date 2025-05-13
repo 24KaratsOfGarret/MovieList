@@ -14,18 +14,12 @@ class MovieAdapter(private val movieList: MutableList<Movie>) :
 
     val swipeToDeleteCallback = SwipeToDeleteCallback()
 
-    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var titleTextView: TextView
-        var yearTextView: TextView
-        var genreTextView: TextView
-        var ratingTextView: TextView
-        init {
-            titleTextView = itemView.findViewById(R.id.titleTextView)
-            genreTextView = itemView.findViewById(R.id.yearTextView)
-            genreTextView = itemView.findViewById(R.id.genreTextView)
-            ratingTextView = itemView.findViewById(R.id.ratingTextView)
+    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            var titleTextView: TextView = itemView.findViewById<TextView?>(R.id.titleTextView)
+            var yearTextView: TextView = itemView.findViewById<TextView?>(R.id.yearTextView)
+            var genreTextView: TextView = itemView.findViewById<TextView?>(R.id.genreTextView)
+            var ratingTextView: TextView = itemView.findViewById<TextView?>(R.id.ratingTextView)
         }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context)
